@@ -30,7 +30,7 @@
 	  (set-fontset-font (frame-parameter nil 'font)
 			    charset (font-spec :family "Sarasa Nerd" :size 16))))
 
-      (set-face-attribute 'default nil :font "Source Code Pro for Powerline 11")))
+      (set-face-attribute 'default nil :font "Menlo 16")))
     
 
 
