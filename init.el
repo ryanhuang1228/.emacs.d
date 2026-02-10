@@ -6,6 +6,7 @@
 (require 'init-const)
 (require 'init-startup)
 (require 'init-elpa)
+(require 'init-ui)
 (require 'init-package)
 (require 'init-keybind)
 
