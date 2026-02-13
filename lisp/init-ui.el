@@ -12,7 +12,8 @@
 	dashboard-set-file-icons t
 	dashboard-set-heading-icons t)
   (dashboard-modify-heading-icons '((recents   . "file-text")
-                                    (bookmarks . "book")))
+                                    (bookmarks . "book")
+				    (agenda . "calendar")))
   (dashboard-setup-startup-hook))
 
 (use-package gruvbox-theme

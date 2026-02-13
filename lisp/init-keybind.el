@@ -12,6 +12,7 @@
 (use-package drag-stuff
   :bind (("<M-up>" . drag-stuff-up)
 	 ("<M-down>" . drag-stuff-down)))
+
 (use-package ivy
   :ensure t
   :defer 1
@@ -24,10 +25,12 @@
 	ivy-count-format "%d/%d "
 	enable-recursive-minibuffers t
 	ivy-re-builders-alist '((t . ivy--regex-ignore-order))))
+
 (use-package counsel
   :after (ivy)
   :bind (("M-x" . counsel-M-x)
 	 ("C-x C-f" . counsel-find-file)))
+
 (use-package swiper
   :after ivy
   :bind (("C-s" . swiper)

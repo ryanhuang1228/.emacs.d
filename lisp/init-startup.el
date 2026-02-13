@@ -11,5 +11,11 @@
 
 (setq inhibit-startup-screen t)
 (setq make-backup-files nil)
+(setq initial-frame-alist
+      '((top . 0.5)
+	(left . 0.5)
+	(width . 120)
+	(height . 40)))
+
 
 (provide 'init-startup)
