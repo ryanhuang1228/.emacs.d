@@ -8,12 +8,12 @@
   :config
   (setq dashboard-startup-banner 'logo
 	dashboard-center-content t
-	dashboard-icon-type 'all-the-icons
+;	dashboard-icon-type 'all-the-icons
 	dashboard-set-file-icons t
 	dashboard-set-heading-icons t)
   (dashboard-modify-heading-icons '((recents   . "file-text")
                                     (bookmarks . "book")
-				    (agenda . "calendar")))
+				    (agenda    . "calendar")))
   (dashboard-setup-startup-hook))
 
 (use-package gruvbox-theme

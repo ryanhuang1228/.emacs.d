@@ -14,6 +14,12 @@
   :bind
   ("C-\\" . treemacs))
 
-
+(use-package evil
+  :ensure t
+  :demand t
+  :config
+  (evil-mode 1)
+  (evil-define-key 'normal 'global (kbd "C-c e") 'evil-emacs-state)
+  (evil-define-key 'emacs  'global (kbd "C-c e") 'evil-exit-emacs-state))
 
 (provide 'init-package)
