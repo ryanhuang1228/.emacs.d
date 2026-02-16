@@ -1,19 +1,27 @@
-(use-package all-the-icons
-  :ensure t
-  :demand t
-  :if (display-graphic-p))
+;; (use-package all-the-icons
+;;   :ensure t
+;;   :demand t
+;;   :if (display-graphic-p))
+
+(use-package nerd-icons
+  ;; :custom
+  ;; The Nerd Font you want to use in GUI
+  ;; "Symbols Nerd Font Mono" is the default and is recommended
+  ;; but you can use any other Nerd Font if you want
+  ;; (nerd-icons-font-family "Symbols Nerd Font Mono")
+  )
 (use-package dashboard
   :ensure t
   :demand t
   :config
   (setq dashboard-startup-banner 'logo
 	dashboard-center-content t
-;	dashboard-icon-type 'all-the-icons
+	dashboard-icon-type 'nerd-icons
 	dashboard-set-file-icons t
 	dashboard-set-heading-icons t)
-  (dashboard-modify-heading-icons '((recents   . "file-text")
-                                    (bookmarks . "book")
-				    (agenda    . "calendar")))
+  (dashboard-modify-heading-icons '((recents   . "nf-oct-file")
+                                    (bookmarks . "nf-oct-bookmark")
+				    (agenda    . "nf-oct-checklist")))
   (dashboard-setup-startup-hook))
 
 ;; (use-package gruvbox-theme
