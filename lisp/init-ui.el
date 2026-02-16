@@ -16,15 +16,42 @@
 				    (agenda    . "calendar")))
   (dashboard-setup-startup-hook))
 
-(use-package gruvbox-theme
+;; (use-package gruvbox-theme
+;;   :ensure t
+;;   :init (load-theme 'gruvbox-dark-soft t))
+(use-package doom-themes
   :ensure t
-  :init (load-theme 'gruvbox-dark-soft t))
-(use-package smart-mode-line
+  :demand t
+  :custom
+  ;; Global settings (defaults)
+  (doom-themes-enable-bold t)   ; if nil, bold is universally disabled
+  (doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  ;; for treemacs users
+  (doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+  :config
+  (load-theme 'doom-one t)
+
+  (doom-themes-visual-bell-config)
+  ;; (doom-themes-treemacs-config)
+)
+
+;; (use-package smart-mode-line
+;;   :ensure t
+;;   :init
+;;   (setq sml/no-confirm-load-theme t
+;; 	sml/theme 'respectful)
+;;   (sml/setup))
+
+(use-package doom-modeline
   :ensure t
-  :init
-  (setq sml/no-confirm-load-theme t
-	sml/theme 'respectful)
-  (sml/setup))
+  :hook (after-init . doom-modeline-mode)
+  :config
+  (setq doom-modeline-window-width-limit 85
+	doom-modeline-minor-modes t
+	doom-modeline-mode-alist nil
+	doom-modeline-buffer-file-name-style 'relative-from-project)
+)
+
 (use-package emacs
   :config
   (setq dispaly-linej-numbers-type 'visual)
