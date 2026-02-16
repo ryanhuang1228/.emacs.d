@@ -16,11 +16,10 @@
 (use-package ivy
   :ensure t
   :defer 1
-  :demand
   :hook (after-init . ivy-mode)
   :config
   (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t
+  (setq ivy-use-virtual-buffers nil
 	ivy-initial-inputs-alist nil
 	ivy-count-format "%d/%d "
 	enable-recursive-minibuffers t
