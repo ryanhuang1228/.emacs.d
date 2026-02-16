@@ -38,12 +38,20 @@
   :config (setq swiper-action-recenter t
 		swiper-include-line-number-in-search t))
 
+(use-package marginalia
+  :ensure t
+  :init
+  (marginalia-mode t))
+
 (use-package company
   :diminish
   :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
   :init (add-hook 'after-init-hook 'global-company-mode)
   :config
   (setq company-minimum-prefix-length 1
-	company-show-quick-access t))
+	company-show-quick-access t
+	company-global-modes '(not eshell-mode)))
+
+
 
 (provide 'init-keybind)
