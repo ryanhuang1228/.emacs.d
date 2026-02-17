@@ -60,6 +60,8 @@
 	doom-modeline-buffer-file-name-style 'relative-from-project)
 )
 
+
+
 (use-package emacs
   :config
   (setq dispaly-linej-numbers-type 'visual)
@@ -75,7 +77,12 @@
 	(dolist (charset '(kana han symbol cjk-misc bopomofo))
 	  (set-fontset-font (frame-parameter nil 'font)
 			    charset (font-spec :family "Sarasa Nerd" :size 16))))
+    (progn
+      (set-face-attribute 'default nil :font "Menlo 16")
+      (dolist (charset '(kana han symbol cjk-misc bopomofo))
+	(set-fontset-font (frame-parameter nil 'font)
+			  charset (font-spec :family "Hei" :size 16))))
+    ))
 
-      (set-face-attribute 'default nil :font "Menlo 16")))
 
 (provide 'init-ui)
