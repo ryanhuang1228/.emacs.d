@@ -5,6 +5,8 @@
 (set-buffer-file-coding-system 'utf-8)
 
 (setq gc-cons-threshold most-positive-fixnum)
+(setq echo-keystrokes 0.1)
+(setq auto-save-default nil) ; 关闭自动保存
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)

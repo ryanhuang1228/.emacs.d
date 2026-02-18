@@ -1,4 +1,3 @@
-
 (use-package restart-emacs)
 
 (use-package treemacs

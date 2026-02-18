@@ -25,6 +25,10 @@
   ;; 禁止根据内容自动调整大小
   (setq ivy-posframe-height 10)   ; 固定高度
   (setq ivy-posframe-width 100)    ; 固定宽度
+
+  ;; (setq ivy-posframe-parameters '((left-fringe . 10)
+  ;; 				  (right-fringe . 10)))
+  (setq ivy-posframe-border-width 10)
   ;; 启用 ivy-posframe
   (ivy-posframe-mode 1))
 
