@@ -57,9 +57,13 @@
   (setq doom-modeline-window-width-limit 85
 	doom-modeline-minor-modes t
 	doom-modeline-mode-alist nil
-	doom-modeline-buffer-file-name-style 'relative-from-project)
-)
+	doom-modeline-buffer-file-name-style 'relative-from-project))
 
+(use-package minions
+  :ensure t
+  :demand t
+  :config
+  (minions-mode 1))
 
 
 (use-package emacs

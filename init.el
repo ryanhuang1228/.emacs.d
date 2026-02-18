@@ -7,5 +7,6 @@
 (require 'init-startup)
 (require 'init-elpa)
 (require 'init-ui)
+(require 'init-completion)
 (require 'init-package)
 (require 'init-keybind)
