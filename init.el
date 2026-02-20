@@ -8,5 +8,6 @@
 (require 'init-elpa)
 (require 'init-ui)
 (require 'init-completion)
+(require 'init-program)
 (require 'init-package)
 (require 'init-keybind)

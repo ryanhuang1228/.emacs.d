@@ -50,12 +50,26 @@
   (marginalia-mode t))
 
 (use-package company
-  :diminish
-  :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
-  :init (add-hook 'after-init-hook 'global-company-mode)
-  :config
-  (setq company-minimum-prefix-length 1
-	company-show-quick-access t
-	company-global-modes '(not eshell-mode)))
+  :ensure t
+  :hook (after-init . global-company-mode)
+  :bind
+  (:map company-active-map
+	("<tab>" . company-complete-selection))
+  ;; (:map lsp-mode-map
+  ;; 	("<tab>" . company-indent-or-complete-common))
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.3)  ;; 重要：给 LSP 一些时间
+  (company-show-quick-access t)
+  (company-tooltip-align-annotations t)
+  (company-selection-wrap-around t)
+  (company-global-modes '(not eshell-mode))
+  ;; 后端配置：确保 capf 在前
+  (company-backends '(company-capf
+                      company-keywords
+                      company-semantic
+                      company-files
+                      company-dabbrev
+                      company-yasnippet)))
 
 (provide 'init-completion)

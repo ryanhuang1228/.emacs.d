@@ -10,6 +10,16 @@
   (treemacs-follow-mode t)           ; 自动在侧边栏定位当前打开的文件
   (treemacs-filewatch-mode t)        ; 当文件系统有变化时自动刷新
   (treemacs-git-mode -1)
+  (define-key treemacs-mode-map (kbd "C-c c f") #'treemacs-create-file)
+  (define-key treemacs-mode-map (kbd "C-c c d") #'treemacs-create-dir)
+  (define-key treemacs-mode-map (kbd "C-c r") #'treemacs-rename-file)
+  (define-key treemacs-mode-map (kbd "C-c d") #'treemacs-delete-file)
+  (define-key treemacs-mode-map (kbd "C-c y y") #'treemacs-copy-file)
+  (define-key treemacs-mode-map (kbd "C-c m") #'treemacs-move-file)
+  (define-key treemacs-mode-map (kbd "C-c y a") #'treemacs-copy-absolute-path-at-point)
+  (define-key treemacs-mode-map (kbd "C-c y r") #'treemacs-copy-relative-path-at-point)
+  (define-key treemacs-mode-map (kbd "C-c y p") #'treemacs-copy-project-path-at-point)
+  
   :bind
   ("C-\\" . treemacs))
 
@@ -19,6 +29,7 @@
   :config
   (evil-mode 1)
   (evil-define-key 'normal 'global (kbd "C-c e") 'evil-emacs-state)
-  (evil-define-key 'emacs  'global (kbd "C-c e") 'evil-exit-emacs-state))
+  (evil-define-key 'emacs  'global (kbd "C-c e") 'evil-exit-emacs-state)
+)
 
 (provide 'init-package)

@@ -65,14 +65,20 @@
   :config
   (minions-mode 1))
 
-
-(use-package emacs
-  :config
-  (setq dispaly-linej-numbers-type 'visual)
-  (global-display-line-numbers-mode t))
 (use-package emacs
   :if (display-graphic-p)
   :config
+  ;; (setq dispaly-line-numbers-type 'visual)
+  ;; (global-display-line-numbers-mode t)
+  (setq display-line-numbers-width 3)
+  (dolist (mode '(text-mode-hook prog-mode-hook conf-mode-hook))
+    (add-hook mode
+	      (lambda ()
+		(progn
+		  (display-line-numbers-mode 1)
+		  (setq display-line-numbers-type t)))))
+
+  
   (if *is-windows*
       (progn
 	(set-face-attribute 'default nil
