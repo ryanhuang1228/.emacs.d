@@ -17,13 +17,13 @@
                       (concat pyvenv-virtual-env
                               (if (eq system-type 'windows-nt)
                                   "Scripts/python.exe"
-                                "/bin/python")))
+                                "bin/python")))
                 ;; 同时更新 exec-path
                 (add-to-list 'exec-path
                             (concat pyvenv-virtual-env
                                     (if (eq system-type 'windows-nt)
                                         "Scripts"
-                                      "/bin")))
+                                      "bin")))
                 (message "Python interpreter set to: %s" python-shell-interpreter))))
  
   ;; 退出虚拟环境后恢复
