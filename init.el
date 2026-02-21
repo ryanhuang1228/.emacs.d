@@ -11,3 +11,4 @@
 (require 'init-program)
 (require 'init-package)
 (require 'init-keybind)
+(require 'init-ai)

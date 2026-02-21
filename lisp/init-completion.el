@@ -21,7 +21,9 @@
         '((left . 0.5)
           (top . 0.3)
           (width . 100)
-          (height . 10)))
+          (height . 10)
+	  (border-width . 10)
+	  (border-color . "gray30")))
   ;; 禁止根据内容自动调整大小
   (setq ivy-posframe-height 10)   ; 固定高度
   (setq ivy-posframe-width 100)    ; 固定宽度
@@ -39,8 +41,10 @@
 
 (use-package swiper
   :after ivy
-  :bind (("C-s" . swiper)
-	 ("C-r" . swiper-isearch-backward))
+  :bind (
+	 ("C-s" . swiper)
+	 ;; ("C-r" . swiper-isearch-backward)
+	)
   :config (setq swiper-action-recenter t
 		swiper-include-line-number-in-search t))
 

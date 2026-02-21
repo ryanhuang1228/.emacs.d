@@ -38,8 +38,7 @@
   (doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
   :config
   (load-theme 'doom-one t)
-
-  (doom-themes-visual-bell-config)
+  ;; (doom-themes-visual-bell-config)
   ;; (doom-themes-treemacs-config)
 )
 
@@ -70,7 +69,9 @@
   :config
   ;; (setq dispaly-line-numbers-type 'visual)
   ;; (global-display-line-numbers-mode t)
-  (setq display-line-numbers-width 3)
+  (setq display-line-numbers-width-start nil
+	display-line-numbers-width 4
+	highlight-nonselected-windows t)
   (dolist (mode '(text-mode-hook prog-mode-hook conf-mode-hook))
     (add-hook mode
 	      (lambda ()
@@ -84,11 +85,13 @@
 	(set-face-attribute 'default nil
 			    :font "Microsoft Yahei Mono"
 			    :height 160)
+	;; (set-fontset-font t 'unicode (font-spec :family "Segoe UI Emoji") nil 'prepend)
 	(dolist (charset '(kana han symbol cjk-misc bopomofo))
 	  (set-fontset-font (frame-parameter nil 'font)
 			    charset (font-spec :family "Sarasa Nerd" :size 16))))
     (progn
       (set-face-attribute 'default nil :font "Menlo 16")
+      ;; (set-fontset-font t 'unicode (font-spec :family "Apple Color Emoji") nil 'prepend)
       (dolist (charset '(kana han symbol cjk-misc bopomofo))
 	(set-fontset-font (frame-parameter nil 'font)
 			  charset (font-spec :family "Hei" :size 16))))

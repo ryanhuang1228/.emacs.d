@@ -1,3 +1,8 @@
+;; General
+(use-package rainbow-delimiters
+  :ensure t
+  :hook (prog-mode . rainbow-delimiters-mode))
+;; Python
 (use-package pyvenv
   :ensure t
   :hook (python-mode . pyvenv-tracking-mode)
@@ -20,13 +25,13 @@
                                         "Scripts"
                                       "/bin")))
                 (message "Python interpreter set to: %s" python-shell-interpreter))))
-  
+ 
   ;; 退出虚拟环境后恢复
   (setq pyvenv-post-deactivate-hooks
         (list (lambda ()
                 (setq python-shell-interpreter "python")
                 (message "Restored system Python interpreter"))))
-  )
+)
 
 (use-package lsp-mode
   :ensure t
