@@ -1,3 +1,5 @@
+;; 快捷键设置
+
 (when *is-mac*
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier 'none))

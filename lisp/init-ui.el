@@ -1,32 +1,16 @@
-;; (use-package all-the-icons
-;;   :ensure t
-;;   :demand t
-;;   :if (display-graphic-p))
+;; UI设置
 
+;; icons设置
 (use-package nerd-icons
+  :ensure t
   ;; :custom
   ;; The Nerd Font you want to use in GUI
   ;; "Symbols Nerd Font Mono" is the default and is recommended
   ;; but you can use any other Nerd Font if you want
   ;; (nerd-icons-font-family "Symbols Nerd Font Mono")
   )
-(use-package dashboard
-  :ensure t
-  :demand t
-  :config
-  (setq dashboard-startup-banner 'logo
-	dashboard-center-content t
-	dashboard-icon-type 'nerd-icons
-	dashboard-set-file-icons t
-	dashboard-set-heading-icons t)
-  (dashboard-modify-heading-icons '((recents   . "nf-oct-file")
-                                    (bookmarks . "nf-oct-bookmark")
-				    (agenda    . "nf-oct-checklist")))
-  (dashboard-setup-startup-hook))
 
-;; (use-package gruvbox-theme
-;;   :ensure t
-;;   :init (load-theme 'gruvbox-dark-soft t))
+;; 主题设置
 (use-package doom-themes
   :ensure t
   :demand t
@@ -37,18 +21,12 @@
   ;; for treemacs users
   (doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
   :config
-  (load-theme 'doom-one t)
+  (load-theme 'doom-1337 t)
   ;; (doom-themes-visual-bell-config)
   ;; (doom-themes-treemacs-config)
 )
 
-;; (use-package smart-mode-line
-;;   :ensure t
-;;   :init
-;;   (setq sml/no-confirm-load-theme t
-;; 	sml/theme 'respectful)
-;;   (sml/setup))
-
+;; modeline
 (use-package doom-modeline
   :ensure t
   :hook (after-init . doom-modeline-mode)
@@ -57,28 +35,27 @@
 	doom-modeline-minor-modes t
 	doom-modeline-mode-alist nil
 	doom-modeline-buffer-file-name-style 'relative-from-project))
-
+;; minions-mode
 (use-package minions
   :ensure t
   :demand t
   :config
   (minions-mode 1))
 
+;; emacs ui设置
 (use-package emacs
   :if (display-graphic-p)
   :config
-  ;; (setq dispaly-line-numbers-type 'visual)
-  ;; (global-display-line-numbers-mode t)
-  (setq display-line-numbers-width-start nil
-	display-line-numbers-width 4
-	highlight-nonselected-windows t)
+
   (dolist (mode '(text-mode-hook prog-mode-hook conf-mode-hook))
     (add-hook mode
 	      (lambda ()
 		(progn
-		  (display-line-numbers-mode 1)
-		  (setq display-line-numbers-type t)))))
-
+		  (display-line-numbers-mode t)
+		  (setq display-line-numbers-type t)
+		  (setq display-line-numbers-width-start t
+			display-line-numbers-width 3
+			display-line-numbers-grow-only t)))))
   
   (if *is-windows*
       (progn

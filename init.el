@@ -3,10 +3,11 @@
 (setq custom-file
       (expand-file-name "custom.el" user-emacs-directory))
 
-(require 'init-const)
-(require 'init-startup)
+(require 'init-base)
 (require 'init-elpa)
 (require 'init-ui)
+(require 'init-dashboard)
+(require 'init-navigation)
 (require 'init-completion)
 (require 'init-program)
 (require 'init-package)

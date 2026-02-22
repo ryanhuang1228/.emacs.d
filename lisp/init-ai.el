@@ -1,4 +1,4 @@
-;; AI integration in Emacs
+;; AI集成设置
 ;; Under Configuration
 
 

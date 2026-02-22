@@ -1,3 +1,5 @@
+;; 内容补全和提示设置
+
 (use-package ivy
   :ensure t
   :defer 1
@@ -9,6 +11,7 @@
 	ivy-count-format "%d/%d "
 	enable-recursive-minibuffers t
 	ivy-re-builders-alist '((t . ivy--regex-ignore-order))))
+
 (use-package ivy-posframe
   :ensure t
   :after ivy
