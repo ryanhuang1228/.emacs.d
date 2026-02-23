@@ -1,16 +1,28 @@
 ;; 内容补全和提示设置
 
+(use-package orderless
+  :ensure t
+  :demand
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles partial-completion))))
+  (completion-pcm-leading-wildcard t)) ;; Emacs 31: partial-completion behaves like substring
+
 (use-package ivy
   :ensure t
   :defer 1
+  :after orderless
   :hook (after-init . ivy-mode)
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers nil
 	ivy-initial-inputs-alist nil
 	ivy-count-format "%d/%d "
-	enable-recursive-minibuffers t
-	ivy-re-builders-alist '((t . ivy--regex-ignore-order))))
+	enable-recursive-minibuffers t)
+
+  ;; orderless config
+  (setq ivy-re-builders-alist '((t . orderless-ivy-re-builder)))
+  (add-to-list 'ivy-highlight-functions-alist '(orderless-ivy-re-builder . orderless-ivy-highlight)))
 
 (use-package ivy-posframe
   :ensure t
@@ -78,5 +90,7 @@
                       company-files
                       company-dabbrev
                       company-yasnippet)))
+
+
 
 (provide 'init-completion)
