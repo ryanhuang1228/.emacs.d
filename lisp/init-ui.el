@@ -3,11 +3,11 @@
 ;; icons设置
 (use-package nerd-icons
   :ensure t
-  ;; :custom
+  :custom
   ;; The Nerd Font you want to use in GUI
   ;; "Symbols Nerd Font Mono" is the default and is recommended
   ;; but you can use any other Nerd Font if you want
-  ;; (nerd-icons-font-family "Symbols Nerd Font Mono")
+  (nerd-icons-font-family "Symbols Nerd Font Mono")
   )
 
 ;; 主题设置
@@ -60,12 +60,12 @@
   (if *is-windows*
       (progn
 	(set-face-attribute 'default nil
-			    :font "Microsoft Yahei Mono"
+			    :font "Fira Code"
 			    :height 160)
 	;; (set-fontset-font t 'unicode (font-spec :family "Segoe UI Emoji") nil 'prepend)
 	(dolist (charset '(kana han symbol cjk-misc bopomofo))
-	  (set-fontset-font (frame-parameter nil 'font)
-			    charset (font-spec :family "Sarasa Nerd" :size 16))))
+	  (setq face-font-rescale-alist `(("Microsoft YaHei Mono" . 1.3)))
+	  (set-fontset-font t charset (font-spec :family "Microsoft YaHei Mono" :size 16))))
     (progn
       (set-face-attribute 'default nil :font "Menlo 16")
       ;; (set-fontset-font t 'unicode (font-spec :family "Apple Color Emoji") nil 'prepend)
@@ -76,3 +76,4 @@
 
 
 (provide 'init-ui)
+

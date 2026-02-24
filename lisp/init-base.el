@@ -16,6 +16,7 @@
 (setq auto-save-default nil)  ;; 关闭自动保存
 (setq inhibit-startup-screen t)
 (setq make-backup-files nil)
+(setq ring-bell-function 'ignore)
 (setq initial-frame-alist
       '((top . 0.5)
 	(left . 0.5)
