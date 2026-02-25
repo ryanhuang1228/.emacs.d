@@ -23,11 +23,27 @@
 	(width . 120)
 	(height . 40)))
 
-;; emacs内置Mode设置
+;; emacs mode 设置
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 (electric-pair-mode t)
+
+;; emacs line number show up only in text-mode,
+;; prog-mode and conf-mode.
+(when (display-graphic-p)
+  (dolist (mode '(text-mode-hook prog-mode-hook conf-mode-hook))
+    (add-hook mode
+	      (lambda ()
+		(progn
+		  (display-line-numbers-mode t)
+		  (setq display-line-numbers-type t
+			display-line-numbers-width-start t
+			display-line-numbers-width 3
+			display-line-numbers-grow-only t))))))
+
+
+
 
 (provide 'init-base)
 

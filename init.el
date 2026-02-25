@@ -4,6 +4,7 @@
       (expand-file-name "custom.el" user-emacs-directory))
 
 (require 'init-base)
+(require 'init-font)
 (require 'init-elpa)
 (require 'init-ui)
 (require 'init-dashboard)

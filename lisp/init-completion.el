@@ -22,13 +22,23 @@
 
 (use-package corfu
   :ensure t
-  :init (global-corfu-mode)
-  :custom (corfu-auto t) (corfu-auto-delay 0.2) (corfu-cycle t)
+  :init
+  (global-corfu-mode)
+  (corfu-popupinfo-mode)
+  :custom
+  ;; corfu
+  (corfu-auto t)
+  (corfu-auto-delay 0.2)
+  (corfu-cycle t)
   ;; (corfu-separator ?_) ;; Set to orderless separator, if not using space
   (corfu-auto-prefix 2)
   (corfu-preselect 'prompt)
-  (corfu-auto-trigger ".") ;; Custom trigger characters
-  (corfu-quit-no-match 'separator) ;; or t
+  ;; (corfu-auto-trigger ".") ;; Custom trigger characters
+  (corfu-quit-no-match t) ;; or t
+
+  ;;corfu-popupinfo
+  (corfu-popupinfo-delay '(0.25 . 0.1))
+  (corfu-popupinfo-hide nil)
   :bind
   (:map
    corfu-map
@@ -41,7 +51,6 @@
 ;;  ;; ("<backtab>" . corfu-previous) ; Shift-Tab to select previous
 ;; ("C-n" . corfu-next) ("C-p" . corfu-previous)))
 
-
 ;; Fancy completion-at-point functions; there's too much in the cape package to
 ;; configure here; dive in when you're comfortable!
 (use-package cape
@@ -49,7 +58,9 @@
   :defer t
   :init
   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
-  (add-to-list 'completion-at-point-functions #'cape-file))
+  (add-to-list 'completion-at-point-functions #'cape-file)
+  (add-to-list 'completion-at-point-functions #'cape-elisp-symbol)
+)
 
 (use-package consult
   :ensure t
@@ -57,7 +68,6 @@
 	 ("C-x b" . consult-buffer)
 	 ("M-y" . consult-yank-pop)
 	 ("C-s" . consult-line)
-	 ("M-s" . consult-line)
 	 ))
 
 (use-package embark

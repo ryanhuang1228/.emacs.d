@@ -11,19 +11,31 @@
   (global-treesit-auto-mode))
 
 ;; language server
-(use-package lsp-mode
-  :ensure t
-  :init
-  :hook
-  (python-mode . lsp-deferred)
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :init
+;;   :hook
+;;   (python-mode . lsp-deferred)
+;;   :config
+;;   (setq lsp-pylsp-plugins-pydocstyle-enabled nil
+;; 	lsp-auto-guess-root nil
+;; 	lsp-enable-completion-at-point t
+;; 	lsp-modeline-diagnostics-enable t
+;; 	lsp-diagnostics-provider :auto
+;; 	lsp-headerline-breadcrumb-enable nil
+;; 	lsp-completion-provider :none)
+;;   :commands (lsp lsp-deferred))
+(use-package eglot
+  :custom
+  (eglot-autoshutdown t)
   :config
-  (setq lsp-pylsp-plugins-pydocstyle-enabled nil
-	lsp-auto-guess-root nil
-	lsp-enable-completion-at-point t
-	lsp-modeline-diagnostics-enable t
-	lsp-diagnostics-provider :auto
-	lsp-headerline-breadcrumb-enable nil)
-  :commands (lsp lsp-deferred))
+  (add-to-list 'eglot-server-programs '((python-mode) "pylsp"))
+  (advice-add 'eglot--python-path :override 
+              (lambda ()
+                "返回当前 pyvenv 激活的 Python 路径"
+                (or (pyvenv-virtual-env-name)
+                    (executable-find "python3")
+                    (executable-find "python")))))
 
 ;; Python
 (use-package python
