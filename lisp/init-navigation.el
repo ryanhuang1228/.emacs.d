@@ -31,4 +31,43 @@
   :bind
   ("C-\\" . treemacs))
 
+;; centaur-tabs
+(use-package centaur-tabs
+  :ensure t
+  :demand t
+  :custom
+  (centaur-tabs-style "bar")
+  (centaur-tabs-height 40)
+  (centaur-tabs-set-icons t)
+  (centaur-tabs-show-new-tab-button t)
+  (centaur-tabs-set-modified-marker t)
+  (centaur-tabs-show-navigation-buttons t)
+  (centaur-tabs-set-bar 'under)
+  (centaur-tabs-show-count nil)
+  (centaur-tabs-icon-type 'nerd-icons)
+  ;; (centaur-tabs-label-fixed-length 15)
+  (centaur-tabs-gray-out-icons 'buffer)
+  ;; (centaur-tabs-plain-icons t)
+  (x-underline-at-descent-line t)
+  (centaur-tabs-left-edge-margin nil)
+  :bind (("C-<prior>" . centaur-tabs-backward)
+	 ("C-<next>" . centaur-tabs-forward))
+  :config
+  (setq centaur-tabs-excluded-prefixes (append '("*Treemacs")
+					       centaur-tabs-excluded-prefixes))
+
+  (defun centaur-tabs-buffer-groups ()
+    "centaur-tabs-buffer-groups is a function that controls the buffers'group"
+    (list
+     (cond
+      ((string-prefix-p "*" (buffer-name))
+       "System")
+      ((derived-mode-p 'prog-mode)
+       "Editing")
+      ((derived-mode-p 'dired-mode)
+       "Dired")))
+    )
+
+  (centaur-tabs-mode t))
+
 (provide 'init-navigation)
