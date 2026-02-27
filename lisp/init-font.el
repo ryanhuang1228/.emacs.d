@@ -1,7 +1,7 @@
 ;; set font
 
-(setq-default default-text-properties '(line-spacing 0.2
-					line-height 1.2))
+(setq-default default-text-properties '(line-spacing 0.15
+					line-height 1.15))
 
 
 ;; 字体设置

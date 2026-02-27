@@ -3,7 +3,7 @@
 
 (use-package undo-tree
   :ensure t
-  :demand
+  :demand t
   :config
   (global-undo-tree-mode t)
   (setq undo-tree-auto-save-history nil
@@ -23,6 +23,7 @@
 ;; 多光标, g r前缀
 (use-package evil-mc
   :ensure t
+  :demand t
   :config
   (global-evil-mc-mode t))
 

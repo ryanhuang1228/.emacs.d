@@ -1,4 +1,4 @@
-;; 内容补全和提示设置
+; 内容补全和提示设置
 
 (use-package orderless
   :ensure t
@@ -18,7 +18,12 @@
   :ensure t
   :init
   ;; You'll want to make sure that e.g. fido-mode isn't enabled
-  (vertico-mode))
+  (vertico-mode)
+  :bind
+  (:map vertico-map
+	("C-j" . vertico-next)
+	("C-k" . vertico-previous))
+)
 
 (use-package corfu
   :ensure t
