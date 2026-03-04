@@ -35,7 +35,9 @@
                 "返回当前 pyvenv 激活的 Python 路径"
                 (or (pyvenv-virtual-env-name)
                     (executable-find "python3")
-                    (executable-find "python")))))
+                    (executable-find "python"))))
+  (setq-default eglot-workspace-configuration
+		'(:pylsp (:plugins (:pycodestyle (:enabled t :ignore ["E501"]))))))
 
 ;; Python
 (use-package python

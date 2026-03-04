@@ -16,4 +16,9 @@
   :bind (("<M-up>" . drag-stuff-up)
 	 ("<M-down>" . drag-stuff-down)))
 
+(use-package avy
+  :ensure t
+  :bind (("M-g g" . avy-goto-line)
+	 ("M-j" . avy-goto-char-timer)))
+
 (provide 'init-keybind)
