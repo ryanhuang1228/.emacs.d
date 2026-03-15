@@ -16,17 +16,17 @@
 	     when (font-available-p font)
 	     return (set-face-attribute 'default nil
 					:family font
-					:height 140))
+					:height 160))
     ;; Set font for Chinese characters
     (cl-loop for font in '(
 			   "Sarasa Mono SC"
-			   "PingFang SC"
 			   "Microsoft Yahei Mono"
+			   "PingFang SC"
 			   )
 	     when (font-available-p font)
 	     return (progn
-		      (set-fontset-font t 'han (font-spec :family font))
-		      (setq face-font-rescale-alist `((,font . 0.5)))))
+		      (set-fontset-font t 'han (font-spec :family font :size 18))
+		      (setq face-font-rescale-alist `((,font . 1)))))
     ;; Specify font for all unicode characters
     (cl-loop for font in '("Apple Symbols" "Segoe UI Symbol" "Symbola" "Symbol")
              when (font-available-p font)
@@ -45,8 +45,8 @@
 
 (use-package emacs
   :config
-  (setq-default default-text-properties '(line-spacing 0.25
-					  line-height 1.25))
+  ;; (setq-default default-text-properties '(line-spacing 0.25
+  ;; 					  line-height 1.25))
   (setup-fonts))
 
 (provide 'init-font)

@@ -6,6 +6,9 @@
   :init
   (setq treesit-font-lock-level 4)
   (add-to-list 'major-mode-remap-defaults '(python-mode . python-ts-mode))
+  (add-to-list 'major-mode-remap-defaults '(rust-mode . rust-ts-mode))
+  (setopt treesit-language-source-alist
+	  '((rust "https://github.com/tree-sitter/tree-sitter-rust" "v0.23.3")))
   :config
   (setq treesit-auto-install 'prompt)
   (global-treesit-auto-mode))
@@ -30,6 +33,8 @@
   (eglot-autoshutdown t)
   :config
   (add-to-list 'eglot-server-programs '((python-mode) "pylsp"))
+  (add-to-list 'eglot-server-programs '(rust-ts-mode . ("rust-analyzer")))
+
   (advice-add 'eglot--python-path :override 
               (lambda ()
                 "返回当前 pyvenv 激活的 Python 路径"
@@ -75,8 +80,14 @@
                 (setq python-shell-interpreter "python")
                 (message "Restored system Python interpreter")))))
 
-
-
-
+;; rust
+(use-package rust-mode
+  :ensure t
+  :defer t
+  :init
+  ;; (setq rust-mode-treesitter-derive t)
+  :custom
+  (rust-indent-where-clause t)
+  (rust-load-optional-libraries t))
 
 (provide 'init-program)

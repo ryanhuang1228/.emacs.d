@@ -20,8 +20,8 @@
 (setq initial-frame-alist
       '((top . 0.5)
 	(left . 0.5)
-	(width . 120)
-	(height . 40)))
+	(width . 140)
+	(height . 45)))
 
 ;; emacs mode 设置
 (tool-bar-mode -1)
