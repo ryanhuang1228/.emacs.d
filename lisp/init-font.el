@@ -25,7 +25,10 @@
 			   )
 	     when (font-available-p font)
 	     return (progn
-		      (set-fontset-font t 'han (font-spec :family font :size 18))
+		      (if *is-windows*
+			  (set-fontset-font t 'han (font-spec :family font :size 18)))
+		      (if *is-mac*
+			  (set-fontset-font t 'han (font-spec :family font :size 16)))
 		      (setq face-font-rescale-alist `((,font . 1)))))
     ;; Specify font for all unicode characters
     (cl-loop for font in '("Apple Symbols" "Segoe UI Symbol" "Symbola" "Symbol")

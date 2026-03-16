@@ -24,6 +24,7 @@
   (load-theme 'doom-1337 t)
   ;; (doom-themes-visual-bell-config)
   ;; (doom-themes-treemacs-config)
+  (set-face-attribute 'font-lock-function-call-face nil :italic nil)
 )
 
 ;; modeline
